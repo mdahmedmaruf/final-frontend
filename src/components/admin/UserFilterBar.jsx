@@ -11,7 +11,7 @@ export default function UserFilterBar({
     const riderCount = allUsers.filter((user) => user.role === 'rider').length
     const adminCount = allUsers.filter((user) => user.role === 'admin').length
     return (
-        <div className='flex flex-wrap justify-between items-center gap-4'>
+        <div className='w-full flex flex-wrap justify-between items-center gap-4'>
             <div className='flex items-center gap-2'>
                 <button
                     onClick={() => setRoleFilter('all')}

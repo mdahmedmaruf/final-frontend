@@ -19,7 +19,7 @@ export default function Header() {
                         to={`/`}
                         className='text-slate-200 font-nunito text-lg font-light'
                     >
-                        Logo
+                        Swift<span className='font-black'>Parcel</span>
                     </Link>
                     <nav>
                         {user ? (
@@ -38,11 +38,13 @@ export default function Header() {
                                         {user.full_name || 'User'}
                                     </p>
                                     <p>|</p>
-                                    <p>{user.role}</p>
+                                    <p className='font-nunito font-black text-xs uppercase'>
+                                        {user.role}
+                                    </p>
                                 </div>
                                 <button
                                     onClick={handleLogOut}
-                                    className='font-nunito text-base'
+                                    className='font-nunito text-base cursor-pointer'
                                 >
                                     Logout
                                 </button>

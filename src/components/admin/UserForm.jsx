@@ -1,4 +1,9 @@
+import { Eye, EyeOff } from 'lucide-react'
+import { useState } from 'react'
+
 export default function UserForm({ userData, onChange, onSubmit }) {
+    const [showPassword, setShowPassword] = useState(false)
+
     return (
         <form
             onSubmit={onSubmit}
@@ -63,15 +68,28 @@ export default function UserForm({ userData, onChange, onSubmit }) {
                     >
                         Password
                     </label>
-                    <input
-                        type='password'
-                        name='password'
-                        id='password'
-                        placeholder='••••••••'
-                        value={userData.password}
-                        onChange={onChange}
-                        className='w-full border border-slate-700 bg-slat-800 font-nunito text-sm text-slate-200 rounded-lg py-2.5 px-3 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500'
-                    />
+                    <div className='relative'>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            name='password'
+                            id='password'
+                            placeholder='••••••••'
+                            value={userData.password}
+                            onChange={onChange}
+                            className='w-full border border-slate-700 bg-slat-800 font-nunito text-sm text-slate-200 rounded-lg py-2.5 px-3 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500'
+                        />
+                        <button
+                            type='button'
+                            onClick={() => setShowPassword(!showPassword)}
+                            className='absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer'
+                        >
+                            {showPassword ? (
+                                <EyeOff size={14} />
+                            ) : (
+                                <Eye size={14} />
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className='w-fit'>

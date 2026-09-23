@@ -1,3 +1,4 @@
+import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useNavigate } from 'react-router'
@@ -11,6 +12,7 @@ export default function LoginPage() {
     })
     const [errors, setErrors] = useState({})
     const [submitting, setSubmitting] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const { login } = useAuth()
     const navigate = useNavigate()
@@ -108,15 +110,28 @@ export default function LoginPage() {
                         >
                             Password
                         </label>
-                        <input
-                            type='password'
-                            name='password'
-                            id='password'
-                            placeholder='••••••••'
-                            value={formData.password}
-                            onChange={handleChange}
-                            className={`w-full border bg-slate-800 font-nunito text-sm text-slate-200 rounded-lg py-2.5 px-3 outline-none transition-colors placeholder:text-slate-500 ${errors.password ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-500'}`}
-                        />
+                        <div className='relative'>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                name='password'
+                                id='password'
+                                placeholder='••••••••'
+                                value={formData.password}
+                                onChange={handleChange}
+                                className={`w-full border bg-slate-800 font-nunito text-sm text-slate-200 rounded-lg py-2.5 px-3 outline-none transition-colors placeholder:text-slate-500 ${errors.password ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-500'}`}
+                            />
+                            <button
+                                type='button'
+                                onClick={() => setShowPassword(!showPassword)}
+                                className='absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer'
+                            >
+                                {showPassword ? (
+                                    <EyeOff size={14} />
+                                ) : (
+                                    <Eye size={14} />
+                                )}
+                            </button>
+                        </div>
                     </div>
                     <button
                         type='submit'

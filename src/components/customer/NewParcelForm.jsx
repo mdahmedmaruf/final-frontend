@@ -55,7 +55,7 @@ export default function NewParcelForm({ token, setParcels, setShowForm }) {
                 )
 
             setParcels((prevParcels) => [data, ...prevParcels])
-            toast.success('Parcel added successfully!')
+            toast.success('Parcel request sent successfully!')
             setFormData({
                 receiver_name: '',
                 receiver_phone: '',
@@ -71,11 +71,13 @@ export default function NewParcelForm({ token, setParcels, setShowForm }) {
 
     return (
         <div>
-            <h2>New Parcel Request</h2>
             <form
                 onSubmit={handleAddParcel}
-                className='bg-slate-800 border border-amber-500/30 p-5 rounded-xl w-full space-y-4'
+                className='bg-slate-800 border border-amber-500/30 p-5 rounded-xl w-full space-y-4 my-6'
             >
+                <h2 className='font-nunito font-bold text-2xl text-slate-300'>
+                    New Parcel Request
+                </h2>
                 <div className='grid grid-cols-2 gap-4'>
                     <div className='flex flex-col gap-y-2'>
                         <label

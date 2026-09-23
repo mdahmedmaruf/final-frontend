@@ -34,7 +34,10 @@ export default function UserCard({ user, onOpenEditModal, onDelete }) {
                     <option value='admin'>admin</option>
                 </select>
                 <button onClick={() => onOpenEditModal(user)}>
-                    <UserPen size={20} className='text-slate-400' />
+                    <UserPen
+                        size={20}
+                        className='text-slate-400 cursor-pointer'
+                    />
                 </button>
                 <button onClick={() => onDelete(user.id)}>
                     <Trash
