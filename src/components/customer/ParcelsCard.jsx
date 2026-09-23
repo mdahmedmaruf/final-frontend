@@ -115,7 +115,7 @@ export default function ParcelsCard({
                     {parcel.status === 'pending' && (
                         <button
                             onClick={() => onApprove(parcel.id)}
-                            className='font-nunito font-bold text-sm bg-blue-500 py-1 px-3 text-slate-200 rounded-md'
+                            className='font-nunito font-bold text-sm bg-blue-500 py-1 px-3 text-slate-200 rounded-md cursor-pointer'
                         >
                             Approve Request
                         </button>
@@ -127,6 +127,7 @@ export default function ParcelsCard({
                                 onChange={(e) =>
                                     setSelectedRiderId(e.target.value)
                                 }
+                                className='font-nunito font-medium text-xs text-slate-200 bg-slate-800 border border-slate-700 rounded-xl py-1.5 px-3 outline-none cursor-pointer focus:border-amber-500 transition-all'
                             >
                                 <option value=''>Select Rider</option>
                                 {allRiders.map((rider) => (
@@ -140,6 +141,7 @@ export default function ParcelsCard({
                                 onClick={() =>
                                     onAssign(parcel.id, selectedRiderId)
                                 }
+                                className='font-nunito font-bold text-sm bg-teal-500 py-1 px-3 text-slate-200 rounded-md cursor-pointer'
                             >
                                 Assign Rider
                             </button>
