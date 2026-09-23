@@ -64,6 +64,7 @@ src/
 ├── context/
 │   └── AuthProvider.jsx
 ├── layouts/
+│   ├── Root.jsx
 ├── pages/
 │   ├── Dashboard.jsx
 │   ├── LoginPage.jsx
@@ -72,10 +73,7 @@ src/
 │   ├── PrivateRoute.jsx
 │   └── routes.jsx
 ├── services/
-│   ├── adminService.js
 │   ├── api.js
-│   ├── authService.js
-│   └── parcelService.js
 ├── App.jsx
 ├── index.css
 └── main.jsx
