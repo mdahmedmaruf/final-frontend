@@ -7,7 +7,7 @@ A modern, responsive web application for managing parcel deliveries. SwiftParcel
 ## 🚀 Tech Stack
 
 - **Framework:** React.js (Vite)
-- **Routing:** React Router v7
+- **Routing:** React Router v8.4
 - **Styling:** Tailwind CSS
 - **Notifications:** React Hot Toast
 - **Icons:** Lucide React
