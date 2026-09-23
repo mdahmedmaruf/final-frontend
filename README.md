@@ -1,17 +1,45 @@
-# React + Vite
+# SwiftParcel — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application for managing parcel deliveries. SwiftParcel supports multi-role access (Customers, Admins, and Riders) to seamlessly create, assign, and track parcel delivery statuses in real time.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tech Stack
 
-## React Compiler
+- **Framework:** React.js (Vite)
+- **Routing:** React Router v7
+- **Styling:** Tailwind CSS
+- **Notifications:** React Hot Toast
+- **Icons:** Lucide React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Features & User Roles
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# final-frontend
+- **Authentication:** User registration and JWT-based authentication.
+- **Customer Dashboard:**
+    - Request new parcel deliveries with custom delivery addresses and weight.
+    - Track active parcel status (`pending`, `approved`, `assigned`, `delivered`, etc.).
+- **Admin Dashboard:**
+    - Review pending parcel delivery requests.
+    - Approve requests and assign riders from the available workforce.
+- **Rider Dashboard:**
+    - View assigned deliveries.
+    - Accept or reject incoming parcel delivery assignments.
+    - Update fulfillment status in real time.
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/          # Reusable UI components
+│   ├── customer/        # Customer-specific card & modal views
+│   ├── admin/           # Admin assignment and approval controls
+│   └── ParcelsCard.jsx  # Shared parcel display component
+├── context/             # React Context (AuthProvider, etc.)
+├── pages/               # Route pages (Login, Register, Dashboards)
+├── services/            # API base configurations and endpoints
+└── App.jsx              # Application router setup
+```

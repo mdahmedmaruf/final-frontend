@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router'
-import App from '../App'
 import Root from '../layouts/Root'
 import Dashboard from '../pages/Dashboard'
 import LoginPage from '../pages/LoginPage'
@@ -14,7 +13,7 @@ export const router = createBrowserRouter([
         path: '/',
         Component: Root,
         children: [
-            { index: true, Component: App },
+            { index: true, Component: LoginPage },
             {
                 Component: PrivateRoute,
                 children: [{ path: 'dashboard', Component: Dashboard }],
