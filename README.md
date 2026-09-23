@@ -14,6 +14,16 @@ A modern, responsive web application for managing parcel deliveries. SwiftParcel
 
 ---
 
+## 🔑 Demo Credentials
+
+| Role         | Email                  | Password      | Phone            |
+| :----------- | :--------------------- | :------------ | :--------------- |
+| **Admin**    | `admin@example.com`    | `password123` | `+8801914642486` |
+| **Rider**    | `rider@example.com`    | `password123` | `+8801682664379` |
+| **Customer** | `customer@example.com` | `password123` | `+8801821740717` |
+
+---
+
 ## 🛠️ Features & User Roles
 
 - **Authentication:** User registration and JWT-based authentication.
@@ -23,6 +33,7 @@ A modern, responsive web application for managing parcel deliveries. SwiftParcel
 - **Admin Dashboard:**
     - Review pending parcel delivery requests.
     - Approve requests and assign riders from the available workforce.
+    - Manage users and update roles or details.
 - **Rider Dashboard:**
     - View assigned deliveries.
     - Accept or reject incoming parcel delivery assignments.
@@ -34,12 +45,38 @@ A modern, responsive web application for managing parcel deliveries. SwiftParcel
 
 ```text
 src/
-├── components/          # Reusable UI components
-│   ├── customer/        # Customer-specific card & modal views
-│   ├── admin/           # Admin assignment and approval controls
-│   └── ParcelsCard.jsx  # Shared parcel display component
-├── context/             # React Context (AuthProvider, etc.)
-├── pages/               # Route pages (Login, Register, Dashboards)
-├── services/            # API base configurations and endpoints
-└── App.jsx              # Application router setup
+├── assets/
+├── components/
+│   ├── admin/
+│   │   ├── EditUserModal.jsx
+│   │   ├── ParcelTab.jsx
+│   │   ├── UserCard.jsx
+│   │   ├── UserFilterBar.jsx
+│   │   ├── UserForm.jsx
+│   │   └── UsersTab.jsx
+│   ├── customer/
+│   │   ├── NewParcelForm.jsx
+│   │   └── ParcelsCard.jsx
+│   ├── AdminDashboard.jsx
+│   ├── CustomerDashboard.jsx
+│   ├── Header.jsx
+│   └── RiderDashboard.jsx
+├── context/
+│   └── AuthProvider.jsx
+├── layouts/
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── LoginPage.jsx
+│   └── RegisterPage.jsx
+├── routes/
+│   ├── PrivateRoute.jsx
+│   └── routes.jsx
+├── services/
+│   ├── adminService.js
+│   ├── api.js
+│   ├── authService.js
+│   └── parcelService.js
+├── App.jsx
+├── index.css
+└── main.jsx
 ```
