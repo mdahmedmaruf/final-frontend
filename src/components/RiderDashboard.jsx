@@ -72,7 +72,7 @@ export default function RiderDashboard() {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-8'>
             <div className='max-w-3xl mx-auto px-4 py-8 space-y-6'>
                 <h2 className='font-nunito font-bold text-2xl text-slate-200 mt-30'>
                     My Delivery

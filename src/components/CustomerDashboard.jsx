@@ -40,7 +40,7 @@ export default function CustomerDashboard() {
     console.log(user)
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-8'>
             <div className='max-w-3xl mx-auto px-4 py-8 space-y-6'>
                 <div className='mt-30'>
                     <div className='flex items-center justify-between'>

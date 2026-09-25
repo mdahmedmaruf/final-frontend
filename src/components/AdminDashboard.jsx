@@ -69,7 +69,7 @@ export default function AdminDashboard() {
     // console.log(allParcels)
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-8'>
             <div className='max-w-3xl mx-auto px-4 py-8'>
                 <div className='flex flex-col mb-6 mt-30'>
                     <h2 className='font-nunito font-extrabold text-2xl text-slate-200'>
