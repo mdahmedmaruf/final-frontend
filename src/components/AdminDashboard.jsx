@@ -69,49 +69,51 @@ export default function AdminDashboard() {
     // console.log(allParcels)
 
     return (
-        <div className='max-w-3xl mx-auto px-4 py-8'>
-            <div className='flex flex-col mb-6 mt-30'>
-                <h2 className='font-nunito font-extrabold text-2xl text-slate-200'>
-                    AdminDashboard
-                </h2>
-                <p className='font-nunito font-medium text-base text-slate-300'>
-                    Manage all parcel requests across customers and users
-                </p>
+        <div className='container mx-auto'>
+            <div className='max-w-3xl mx-auto px-4 py-8'>
+                <div className='flex flex-col mb-6 mt-30'>
+                    <h2 className='font-nunito font-extrabold text-2xl text-slate-200'>
+                        AdminDashboard
+                    </h2>
+                    <p className='font-nunito font-medium text-base text-slate-300'>
+                        Manage all parcel requests across customers and users
+                    </p>
+                </div>
+                <div className='flex items-center gap-2 bg-slate-800 border border-slate-700 p-1 rounded-lg w-fit my-8'>
+                    <button
+                        onClick={() => setActiveTab('parcels')}
+                        className={`px-5 py-2 rounded-lg text-sm font-nunito font-bold transition-all cursor-pointer ${activeTab === 'parcels' ? 'bg-amber-500 text-slate-900' : 'text-slate-400 hover:text-slate-200'}`}
+                    >
+                        Parcels{' '}
+                        <span className='ml-1 text-xs font-extrabold opacity-80'>
+                            {allParcels.length}
+                        </span>
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('users')}
+                        className={`px-5 py-2 rounded-lg text-sm font-nunito font-bold transition-all cursor-pointer ${activeTab === 'users' ? 'bg-amber-500 text-slate-900' : 'text-slate-400 hover:text-slate-200'}`}
+                    >
+                        Users{' '}
+                        <span className='ml-1 text-xs font-extrabold opacity-80'>
+                            {allUsers.length}
+                        </span>
+                    </button>
+                </div>
+                {activeTab === 'parcels' ? (
+                    <ParcelsTab
+                        allParcels={allParcels}
+                        setAllParcels={setAllParcels}
+                        allUsers={allUsers}
+                        loading={loading}
+                    />
+                ) : (
+                    <UsersTab
+                        allUsers={allUsers}
+                        setAllUsers={setAllUsers}
+                        loading={loading}
+                    />
+                )}
             </div>
-            <div className='flex items-center gap-2 bg-slate-800 border border-slate-700 p-1 rounded-lg w-fit my-8'>
-                <button
-                    onClick={() => setActiveTab('parcels')}
-                    className={`px-5 py-2 rounded-lg text-sm font-nunito font-bold transition-all cursor-pointer ${activeTab === 'parcels' ? 'bg-amber-500 text-slate-900' : 'text-slate-400 hover:text-slate-200'}`}
-                >
-                    Parcels{' '}
-                    <span className='ml-1 text-xs font-extrabold opacity-80'>
-                        {allParcels.length}
-                    </span>
-                </button>
-                <button
-                    onClick={() => setActiveTab('users')}
-                    className={`px-5 py-2 rounded-lg text-sm font-nunito font-bold transition-all cursor-pointer ${activeTab === 'users' ? 'bg-amber-500 text-slate-900' : 'text-slate-400 hover:text-slate-200'}`}
-                >
-                    Users{' '}
-                    <span className='ml-1 text-xs font-extrabold opacity-80'>
-                        {allUsers.length}
-                    </span>
-                </button>
-            </div>
-            {activeTab === 'parcels' ? (
-                <ParcelsTab
-                    allParcels={allParcels}
-                    setAllParcels={setAllParcels}
-                    allUsers={allUsers}
-                    loading={loading}
-                />
-            ) : (
-                <UsersTab
-                    allUsers={allUsers}
-                    setAllUsers={setAllUsers}
-                    loading={loading}
-                />
-            )}
         </div>
     )
 }

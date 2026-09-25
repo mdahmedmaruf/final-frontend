@@ -72,35 +72,37 @@ export default function RiderDashboard() {
     }
 
     return (
-        <div className='max-w-3xl mx-auto px-4 py-8 space-y-6'>
-            <h2 className='font-nunito font-bold text-2xl text-slate-200 mt-30'>
-                My Delivery
-            </h2>
-            <div className='space-y-5'>
-                {loading ? (
-                    <p className='font-nunito font-bold text-sm text-slate-400'>
-                        Loading...
-                    </p>
-                ) : parcels.length === 0 ? (
-                    <p className='font-nunito font-bold text-sm text-slate-400'>
-                        No assigned deliveries found
-                    </p>
-                ) : (
-                    parcels.map((parcel) => (
-                        <ParcelsCard
-                            key={parcel.id}
-                            parcel={parcel}
-                            user={user}
-                            onAccept={(id) =>
-                                handleUpdateStatus(id, 'accepted')
-                            }
-                            onReject={(id) =>
-                                handleUpdateStatus(id, 'rejected')
-                            }
-                            onUpdateStatus={handleUpdateStatus}
-                        />
-                    ))
-                )}
+        <div className='container mx-auto'>
+            <div className='max-w-3xl mx-auto px-4 py-8 space-y-6'>
+                <h2 className='font-nunito font-bold text-2xl text-slate-200 mt-30'>
+                    My Delivery
+                </h2>
+                <div className='space-y-5'>
+                    {loading ? (
+                        <p className='font-nunito font-bold text-sm text-slate-400'>
+                            Loading...
+                        </p>
+                    ) : parcels.length === 0 ? (
+                        <p className='font-nunito font-bold text-sm text-slate-400'>
+                            No assigned deliveries found
+                        </p>
+                    ) : (
+                        parcels.map((parcel) => (
+                            <ParcelsCard
+                                key={parcel.id}
+                                parcel={parcel}
+                                user={user}
+                                onAccept={(id) =>
+                                    handleUpdateStatus(id, 'accepted')
+                                }
+                                onReject={(id) =>
+                                    handleUpdateStatus(id, 'rejected')
+                                }
+                                onUpdateStatus={handleUpdateStatus}
+                            />
+                        ))
+                    )}
+                </div>
             </div>
         </div>
     )
