@@ -70,7 +70,7 @@ export default function AdminDashboard() {
 
     return (
         <div className='max-w-3xl mx-auto px-4 py-8'>
-            <div className='flex flex-col mb-6'>
+            <div className='flex flex-col mb-6 mt-30'>
                 <h2 className='font-nunito font-extrabold text-2xl text-slate-200'>
                     AdminDashboard
                 </h2>

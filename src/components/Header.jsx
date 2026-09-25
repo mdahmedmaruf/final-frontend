@@ -12,7 +12,7 @@ export default function Header() {
         navigate('/login')
     }
     return (
-        <div className=' left-0 w-full'>
+        <div className='fixed left-0 w-full'>
             <div className='container mx-auto px-6'>
                 <div className='flex justify-between items-center py-5'>
                     <Link
@@ -51,12 +51,6 @@ export default function Header() {
                             </div>
                         ) : (
                             <div className='flex items-center gap-3 text-slate-200 font-nunito text-lg font-light'>
-                                <Link
-                                    to={`/login`}
-                                    className='font-nunito text-sm border border-slate-200 rounded-lg py-1.5 px-4'
-                                >
-                                    Login
-                                </Link>
                                 <Link
                                     to={`/register`}
                                     className='bg-amber-500 hover:bg-amber-400 transition-colors py-2 px-3 rounded-lg font-nunito font-bold text-sm text-slate-900'
