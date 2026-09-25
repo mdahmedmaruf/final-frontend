@@ -13,7 +13,7 @@ export default function Header() {
     }
     return (
         <div className=' left-0 w-full'>
-            <div className='container mx-auto'>
+            <div className='container mx-auto px-6'>
                 <div className='flex justify-between items-center py-5'>
                     <Link
                         to={`/`}

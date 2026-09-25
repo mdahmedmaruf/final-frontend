@@ -42,7 +42,7 @@ export default function EditUserModal({ isOpen, user, onClose, onSubmit }) {
                 className='max-w-3xl bg-slate-800 border border-amber-500/30 p-5 rounded-xl w-full space-y-4'
             >
                 <div className='flex items-center justify-between'>
-                    <h2 className='font-nunito font-bold text-2xl text-slate-200'>
+                    <h2 className='font-nunito font-bold text-lg md:text-2xl text-slate-200'>
                         Edit User Details
                     </h2>
                     <button

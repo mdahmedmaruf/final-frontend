@@ -5,9 +5,9 @@ import { useAuth } from '../context/AuthProvider'
 
 export default function Dashboard() {
     const { user } = useAuth()
-    console.log(user?.role)
+    // console.log(user?.role)
     return (
-        <div className='h-screen bg-slate-900 '>
+        <div className=' bg-slate-900 '>
             {user?.role == 'admin' ? (
                 <AdminDashboard />
             ) : user?.role === 'rider' ? (

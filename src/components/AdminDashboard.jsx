@@ -66,10 +66,10 @@ export default function AdminDashboard() {
         fetchDashboardData()
     }, [token, user])
 
-    console.log(allParcels)
+    // console.log(allParcels)
 
     return (
-        <div className='h-screen max-w-3xl mx-auto px-4 py-8'>
+        <div className='max-w-3xl mx-auto px-4 py-8'>
             <div className='flex flex-col mb-6'>
                 <h2 className='font-nunito font-extrabold text-2xl text-slate-200'>
                     AdminDashboard

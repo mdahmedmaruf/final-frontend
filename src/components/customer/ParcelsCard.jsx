@@ -8,7 +8,10 @@ export default function ParcelsCard({
     onAssign,
     onAccept,
     onReject,
+    onUpdateStatus,
 }) {
+    console.log('parcel object', parcel)
+    console.log('ParcelSender', parcel?.sender)
     const [selectedRiderId, setSelectedRiderId] = useState('')
 
     const getStatusStyle = (status) => {
@@ -77,7 +80,9 @@ export default function ParcelsCard({
                         From
                     </p>
                     <p className='font-nunito text-sm text-slate-300'>
-                        {user?.full_name} - {user?.phone}
+                        {parcel.sender?.full_name
+                            ? `${parcel.sender?.full_name} - ${parcel.sender?.phone}`
+                            : 'N/A'}
                     </p>
                 </div>
                 <div>
@@ -121,7 +126,7 @@ export default function ParcelsCard({
                         </button>
                     )}
                     {parcel.status === 'approved' && (
-                        <div>
+                        <div className='flex items-center gap-2'>
                             <select
                                 value={selectedRiderId}
                                 onChange={(e) =>
@@ -150,20 +155,57 @@ export default function ParcelsCard({
                 </div>
             )}
 
-            {user?.role === 'rider' && parcel.status === 'assigned' && (
-                <div className='mt-6 flex items-center gap-2'>
-                    <button
-                        onClick={() => onAccept(parcel.id)}
-                        className='font-nunito font-bold text-sm text-slate-200 bg-blue-700/30 py-1 px-3 rounded-md cursor-pointer'
-                    >
-                        Accept
-                    </button>
-                    <button
-                        onClick={() => onReject(parcel.id)}
-                        className='font-nunito font-bold text-sm text-slate-200 bg-red-700 py-1 px-3 rounded-md cursor-pointer'
-                    >
-                        Reject
-                    </button>
+            {user?.role === 'rider' && (
+                <div>
+                    {parcel.status === 'assigned' && (
+                        <div className='mt-6 flex items-center gap-2'>
+                            <button
+                                onClick={() => onAccept(parcel.id)}
+                                className='font-nunito font-bold text-sm text-slate-200 bg-blue-700/30 py-1 px-3 rounded-md cursor-pointer'
+                            >
+                                Accept
+                            </button>
+                            <button
+                                onClick={() => onReject(parcel.id)}
+                                className='font-nunito font-bold text-sm text-slate-200 bg-red-700 py-1 px-3 rounded-md cursor-pointer'
+                            >
+                                Reject
+                            </button>
+                        </div>
+                    )}
+                    {[
+                        'accepted',
+                        'picked_up',
+                        'out_for_delivery',
+                        'delivered',
+                    ].includes(parcel.status) && (
+                        <div className='pt-5 mt-5 border-t border-slate-700'>
+                            <h2 className='font-nunito font-semibold text-xs text-slate-200 pb-3'>
+                                Update Delivery Status:
+                            </h2>
+                            <select
+                                value={parcel.status}
+                                onChange={(e) =>
+                                    onUpdateStatus(parcel.id, e.target.value)
+                                }
+                                className='font-nunito font-medium text-xs text-slate-200 bg-slate-800 border border-slate-700 rounded-xl py-1.5 px-3 outline-none cursor-pointer focus:border-amber-500 transition-all'
+                            >
+                                <option
+                                    value=''
+                                    disabled
+                                    className='font-nunito text-xs uppercase'
+                                >
+                                    Select One
+                                </option>
+                                <option value='picked_up'>Picked Up</option>
+                                <option value='out_for_delivery'>
+                                    Out For Delivery
+                                </option>
+                                <option value='delivered'>Delivered</option>
+                                <option value='failed'>Failed</option>
+                            </select>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

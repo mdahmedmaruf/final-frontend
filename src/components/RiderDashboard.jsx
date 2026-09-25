@@ -27,6 +27,7 @@ export default function RiderDashboard() {
                 if (!response.ok)
                     throw new Error(data.detail || 'Failed to load parcels')
                 setParcels(data)
+                console.log('data', data)
             } catch (error) {
                 toast.error(error.message || 'Something went wrong!')
             } finally {
@@ -96,6 +97,7 @@ export default function RiderDashboard() {
                             onReject={(id) =>
                                 handleUpdateStatus(id, 'rejected')
                             }
+                            onUpdateStatus={handleUpdateStatus}
                         />
                     ))
                 )}
